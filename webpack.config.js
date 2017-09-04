@@ -4,7 +4,12 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports={
-    entry:{index:"./src/js/index"},
+    entry:{
+        index:"./src/js/index",
+        login:"./src/js/admin/login",
+        admin:"./src/js/admin/main"
+
+    },
     output: {
         path: __dirname+'/build',
         filename: '[name].js'
@@ -40,6 +45,16 @@ module.exports={
             template: './src/html/index.html', //模板路径
             filename: "index.html",
             chunks:["index"]
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/html/login.html', //模板路径
+            filename: "login.html",
+            chunks:["login"]
+        }),
+        new HtmlWebpackPlugin({
+            template: './src/html/admin.html', //模板路径
+            filename: "admin.html",
+            chunks:["admin"]
         }),
     ],
     externals:{
