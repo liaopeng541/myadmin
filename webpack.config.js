@@ -16,11 +16,14 @@ module.exports={
     },
     module: {
         loaders: [
+            { test: /\.css$/, loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]' },
+            /*
             {
                 test: /\.css$/,
                 loader:  ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader?modules&importLoaders=1&localIdentName=[name]_[local]_[hash:base64:5]' })
             }
-            ,{
+            */
+            {
                 test: /\.js$/,
                 loaders: ['babel-loader'],
                 exclude:/node_modules/,
@@ -30,6 +33,7 @@ module.exports={
                 loader: "json-loader"
             },{
                 test: /\.less$/,
+
                 use: [{
                     loader: "style-loader" // creates style nodes from JS strings
                 }, {
